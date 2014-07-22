@@ -47,6 +47,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
+ * 该例子中，创建了一个workflow Planner，一个workflow Engine，一个Scheduler，一个数据中心和20个VMs，你至少需要改变daxPath路径
  * This WorkflowSimExample creates a workflow planner, a workflow engine, and
  * one schedulers, one data centers and 20 vms. You should change daxPath at least. 
  * You may change other parameters as well.
@@ -102,11 +103,11 @@ public class WorkflowSimBasicExample1 {
             /**
              * Should change this based on real physical path
              */
-            String daxPath = "/Users/chenweiwei/Work/WorkflowSim-1.0/config/dax/Montage_100.xml";
-            if(daxPath == null){
+            String daxPath = "D:/OpenGit/WorkflowSim-1.0/config/dax/Montage_100.xml";
+           /* if(daxPath == null){
                 Log.printLine("Warning: Please replace daxPath with the physical path in your working environment!");
                 return;
-            }
+            }*/
             File daxFile = new File(daxPath);
             if(!daxFile.exists()){
                 Log.printLine("Warning: Please replace daxPath with the physical path in your working environment!");
@@ -191,18 +192,18 @@ public class WorkflowSimBasicExample1 {
 
     protected static WorkflowDatacenter createDatacenter(String name) {
 
-        // Here are the steps needed to create a PowerDatacenter:
-        // 1. We need to create a list to store one or more
+        // Here are the steps needed to create a PowerDatacenter:创建一个PowerDatacenter的步骤
+        // 1. We need to create a list to store one or more   我们需要创建一个存储一个或多个机器的列表
         //    Machines
         List<Host> hostList = new ArrayList<Host>();
 
-        // 2. A Machine contains one or more PEs or CPUs/Cores. Therefore, should
-        //    create a list to store these PEs before creating
+        // 2. A Machine contains one or more PEs or CPUs/Cores. Therefore, should  该机器包含一个或多个CPU，核数，
+        //    create a list to store these PEs before creating           因次，应该在创建机器前创建一个列表来保存这些CPU
         //    a Machine.
         for (int i = 1; i <= 20; i++) {
             List<Pe> peList1 = new ArrayList<Pe>();
             int mips = 2000;
-            // 3. Create PEs and add these into the list.
+            // 3. Create PEs and add these into the list.       
             //for a quad-core machine, a list of 4 PEs is required:
             peList1.add(new Pe(0, new PeProvisionerSimple(mips))); // need to store Pe id and MIPS Rating
             peList1.add(new Pe(1, new PeProvisionerSimple(mips)));

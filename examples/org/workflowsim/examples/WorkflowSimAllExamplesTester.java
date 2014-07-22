@@ -29,6 +29,7 @@ import org.workflowsim.examples.cost.*;
 
 /**
  * Test all the workflow examples
+ * 测试所有工作流实例
  * @author Weiwei Chen
  * @since WorkflowSim Toolkit 1.0
  * @date Mar 3, 2014
