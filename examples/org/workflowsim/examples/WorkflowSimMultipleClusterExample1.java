@@ -44,11 +44,12 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
- * This WorkflowSimExample creates a workflow planner, a workflow engine, and
+ * 该例子中，创建了一个workflow Planner，一个workflow Engine，两个Scheduler，两个数据中心和20个VMs，你至少需要改变daxPath路径
+ * This WorkflowSimExample creates a workflow planner, a workflow engine, and 所有的CloudSim配置文件在WorkflowSimExample.java中
  * two schedulers, two data centers and 20 vms. All the configuration of
- * CloudSim is done in WorkflowSimExamplex.java All the configuration of
- * WorkflowSim is done in the config.txt that must be specified in argument of
- * this WorkflowSimExample. The argument should have at least: "-p
+ * CloudSim is done in WorkflowSimExamplex.java All the configuration of	所有的WorkflowSim配置信息在config.txt中
+ * WorkflowSim is done in the config.txt that must be specified in argument of  必须要指定该WorkflowSimExample的参数
+ * this WorkflowSimExample. The argument should have at least: "-p          该参数至少要有“-P path_to_config.txt”
  * path_to_config.txt"
  *
  * @author Weiwei Chen
@@ -97,11 +98,11 @@ public class WorkflowSimMultipleClusterExample1 extends WorkflowSimBasicExample1
              * the data center or the host doesn't have sufficient resources the
              * exact vmNum would be smaller than that. Take care.
              */
-            int vmNum = 20;//number of vms;
+            int vmNum = 30;//number of vms;
             /**
              * Should change this based on real physical path
              */
-            String daxPath = "/Users/chenweiwei/Work/WorkflowSim-1.0/config/dax/Montage_100.xml";
+            String daxPath = "D:/OpenGit/WorkflowSim-1.0/config/dax/Montage_100.xml";
             if(daxPath == null){
                 Log.printLine("Warning: Please replace daxPath with the physical path in your working environment!");
                 return;
