@@ -89,17 +89,18 @@ public class MinMinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
             if (firstIdleVm == null) {
                 break;
             }
+            //调度的关键步骤
             for (int j = 0; j < vmSize; j++) {
-                CondorVM vm = (CondorVM) getVmList().get(j);
-                if ((vm.getState() == WorkflowSimTags.VM_STATUS_IDLE)
+                CondorVM vm = (CondorVM) getVmList().get(j);          //获取当前虚拟机对象
+                if ((vm.getState() == WorkflowSimTags.VM_STATUS_IDLE)       //VM是否空闲？
                         && vm.getCurrentRequestedTotalMips() > firstIdleVm.getCurrentRequestedTotalMips()) {
                     firstIdleVm = vm;
 
                 }
             }
-            firstIdleVm.setState(WorkflowSimTags.VM_STATUS_BUSY);
-            minCloudlet.setVmId(firstIdleVm.getId());
-            getScheduledList().add(minCloudlet);
+            firstIdleVm.setState(WorkflowSimTags.VM_STATUS_BUSY);         //将VM设置为忙碌
+            minCloudlet.setVmId(firstIdleVm.getId());         //为每一个云任务（job）设置一个VM Id号
+            getScheduledList().add(minCloudlet);        //将cloudlet添加到调度列表中
 
         }
     }

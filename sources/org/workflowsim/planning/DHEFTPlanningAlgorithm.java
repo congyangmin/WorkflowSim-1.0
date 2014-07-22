@@ -26,9 +26,9 @@ import org.workflowsim.utils.Parameters;
 /**
  * The Distributed HEFT planning algorithm. The difference compared to HEFT:
  * 
- * 1. We are able to specify the bandwidth between each pair of vms in the
+ * 1. We are able to specify the bandwidth between each pair of vms in the         我们可以指定每一组VMs的带宽参数
  * bandwidths of Parameters. 
- * 2. Instead of using the average communication cost in HEFT, we also aim to 
+ * 2. Instead of using the average communication cost in HEFT, we also aim to       与HEFT中使用平均通信成本不同，我们旨在优化通信成本
  * optimize the communication cost
  *
  * @author Weiwei Chen

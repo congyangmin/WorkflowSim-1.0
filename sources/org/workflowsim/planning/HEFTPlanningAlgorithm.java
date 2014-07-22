@@ -92,18 +92,20 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
             schedules.put(vm, new ArrayList<Event>());
         }
 
-        // Prioritization phase
+        // Prioritization phase   优化阶段
         calculateComputationCosts();
         calculateTransferCosts();
         calculateRanks();
 
-        // Selection phase
+        // Selection phase       选择阶段
         allocateTasks();
     }
 
     /**
+     * 计算所有VMs的平均可用带宽
      * Calculates the average available bandwidth among all VMs in Mbit/s
      *
+     *返回平均可用带宽
      * @return Average available bandwidth in Mbit/s
      */
     private double calculateAverageBandwidth() {
@@ -116,6 +118,7 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
     }
 
     /**
+     * 计算一个VM上一个任务计算的时间（秒）的区间
      * Populates the computationCosts field with the time in seconds to compute
      * a task in a vm.
      */
@@ -139,11 +142,12 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
     }
 
     /**
+     * 传输成本（父节点到子节点）
      * Populates the transferCosts map with the time in seconds to transfer all
      * files from each parent to each child
      */
     private void calculateTransferCosts() {
-        // Initializing the matrix
+        // Initializing the matrix       初始化矩阵
         for (Object taskObject1 : getTaskList()) {
             Task task1 = (Task) taskObject1;
             Map<Task, Double> taskTransferCosts = new HashMap<Task, Double>();
@@ -156,7 +160,7 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
             transferCosts.put(task1, taskTransferCosts);
         }
 
-        // Calculating the actual values
+        // Calculating the actual values      计算实际的值
         for (Object parentObject : getTaskList()) {
             Task parent = (Task) parentObject;
             for (Task child : parent.getChildList()) {
@@ -167,6 +171,7 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
     }
 
     /**
+     * 计费 所有文件从父节点到子节点传输的费用     每秒
      * Accounts the time in seconds necessary to transfer all files described
      * between parent and child
      *
@@ -201,7 +206,7 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
     }
 
     /**
-     * Invokes calculateRank for each task to be scheduled
+     * Invokes calculateRank for each task to be scheduled     对每一个要调度的任务调用calculateRank
      */
     private void calculateRanks() {
         for (Object taskObject : getTaskList()) {
@@ -211,6 +216,7 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
     }
 
     /**
+     * 
      * Populates rank.get(task) with the rank of task as defined in the HEFT
      * paper.
      *
@@ -243,6 +249,7 @@ public class HEFTPlanningAlgorithm extends BasePlanningAlgorithm {
     }
 
     /**
+     * 对所有要调度任务进行不升序调度 分配
      * Allocates all tasks to be scheduled in non-ascending order of schedule.
      */
     private void allocateTasks() {
