@@ -38,6 +38,7 @@ import org.workflowsim.clustering.balancing.metrics.PipelineRuntimeVariance;
 import org.workflowsim.utils.Parameters;
 
 /**
+ * BalancedClustering是一个聚类方法，旨在平衡任务运行时间和数据依赖，
  * BalancedClustering is a clustering method that aims balancing task runtime
  * and data dependency. All BalancedClustering methods should extend it
  *
@@ -158,6 +159,7 @@ public class BalancedClustering extends BasicClustering {
 
     /**
      * Gets the current tasks per level
+     * 获取当前每级的任务
      *
      * @return tasks list per level
      */
