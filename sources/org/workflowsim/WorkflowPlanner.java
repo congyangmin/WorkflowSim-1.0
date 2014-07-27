@@ -29,6 +29,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.Parameters.PlanningAlgorithm;
 
 /**
+ * WorkflowPlanner支持动态planning。将来我们将在这里实现全局和静态算法。WorkflowSim开始于WorkflowPlanner。
  * WorkflowPlanner supports dynamic planning. In the future we will have global
  * and static algorithm here. The WorkflowSim starts from WorkflowPlanner. It
  * picks up a planning algorithm based on the configuration
@@ -205,6 +206,7 @@ public class WorkflowPlanner extends SimEntity {
     }
 
     /**
+     * 为每个任务添加影响因子。这在平衡的任务聚类算法中很有用。它是用来研究的目的，因此它也是最优的
      * Add impact factor for each task. This is useful in task balanced
      * clustering algorithm It is for research purpose and thus it is optional.
      *

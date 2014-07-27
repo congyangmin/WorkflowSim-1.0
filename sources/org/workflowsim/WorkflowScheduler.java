@@ -39,6 +39,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.Parameters.SchedulingAlgorithm;
 
 /**
+ * WorkflowScheduler代理用户的一个算法。它作用于VM管理，比如创建VM，向VMs提交提交jobs，销毁VMs。
  * WorkflowScheduler represents a algorithm acting on behalf of a user. It hides
  * VM management, as vm creation, sumbission of jobs to this VMs and destruction
  * of VMs.
@@ -51,6 +52,7 @@ import org.workflowsim.utils.Parameters.SchedulingAlgorithm;
 public class WorkflowScheduler extends DatacenterBroker {
 
     /**
+     * workflow Engine Id与该workflow算法有关。
      * The workflow engine id associated with this workflow algorithm.
      */
     private int workflowEngineId;
@@ -68,7 +70,7 @@ public class WorkflowScheduler extends DatacenterBroker {
         super(name);
     }
 
-    /**
+    /**将该Scheduler绑定到数据中心
      * Binds this scheduler to a datacenter
      */
     public void bindSchedulerDatacenter(int datacenterId) {
@@ -80,6 +82,7 @@ public class WorkflowScheduler extends DatacenterBroker {
     }
     
     /**
+     * 设置workflow Engine Id号
      * Sets the workflow engine id
      *
      * @param workflowEngineId the workflow engine id
@@ -134,6 +137,7 @@ public class WorkflowScheduler extends DatacenterBroker {
     }
 
     /**
+     * 在多个Scheduler间切换，基于algorithm.method
      * Switch between multiple schedulers. Based on algorithm.method
      *
      * @param name the SchedulingAlgorithm name
@@ -143,7 +147,7 @@ public class WorkflowScheduler extends DatacenterBroker {
         BaseSchedulingAlgorithm algorithm = null;
 
         // choose which algorithm to use. Make sure you have add related enum in
-        //Parameters.java
+        //Parameters.java          选择一个你要是用的算法，确保你已经在Parameters.java中添加了enum
         switch (name) {
             //by default it is Static
             case FCFS:
@@ -177,6 +181,7 @@ public class WorkflowScheduler extends DatacenterBroker {
     }
 
     /**
+     * 处理因创建VM请求而接收到的反馈
      * Process the ack received due to a request for VM creation.
      *
      * @param ev a SimEvent object
@@ -236,7 +241,8 @@ public class WorkflowScheduler extends DatacenterBroker {
         }
     }
 
-    /**
+    /*
+     **更新一个cloudlet（job）
      * Update a cloudlet (job)
      *
      * @param ev a simEvent object

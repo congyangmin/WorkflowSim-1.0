@@ -29,6 +29,7 @@ import org.workflowsim.utils.Parameters;
 
 /**
  * FailureGenerator creates a failure when a job returns
+ * 错误产生器，当任务返回时创建点错误
  *
  * @author Weiwei Chen
  * @since WorkflowSim Toolkit 1.0
@@ -37,6 +38,7 @@ import org.workflowsim.utils.Parameters;
 public class FailureGenerator {
 
     /**
+     * 错误发生器 每次复制分发的样例大小，但是也仅仅限于maxFailureSizeExtension，否则你的错误率将很高
      * FailureGenerator doubles the size of distribution samples each time 
      * but only limits to maxFailureSizeExtension. Otherwise your failure rate 
      * is too high for this workflow
@@ -73,7 +75,7 @@ public class FailureGenerator {
     }
 
     /**
-     * Initialize a Failure Generator.
+     * Initialize a Failure Generator.  初始化错误发生器
      */
     public static void init() {
 
@@ -146,7 +148,7 @@ public class FailureGenerator {
     }
 
     /**
-     * Generates a failure or not
+     * Generates a failure or not      产生一个错误或者不产生
      *
      * @param job
      * @return whether it fails

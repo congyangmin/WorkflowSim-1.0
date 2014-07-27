@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import org.workflowsim.Task;
 
 /**
+ * TaskSet是只在聚类中的一组任务
  * TaskSet is a group of tasks used only in clustering
  *
  * @author Weiwei Chen

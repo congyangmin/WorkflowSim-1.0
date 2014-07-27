@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="D:/OpenGit/WorkflowSim-1.0/lib/flanagan.jar"/>
 	<classpathentry kind="lib" path="D:/OpenGit/WorkflowSim-1.0/lib/jdom-2.0.0.jar"/>
 	<classpathentry kind="lib" path="D:/OpenGit/WorkflowSim-1.0/lib/commons-math3-3.2.jar"/>
+	<classpathentry kind="lib" path="D:/OpenGit/WorkflowSim-1.0/lib/commons-math3-3.2-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

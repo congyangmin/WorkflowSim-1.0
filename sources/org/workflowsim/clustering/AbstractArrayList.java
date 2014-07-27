@@ -20,6 +20,7 @@ package org.workflowsim.clustering;
 import java.util.ArrayList;
 
 /**
+ * 该数据结构AbstractArrayList只在聚类是单独使用，它比ArrayList要好，因为它与depth信息相关。
  * This data structure AbstractArrayList is used in clustering alone It is
  * better than ArrayList since it associates with depth information
  *

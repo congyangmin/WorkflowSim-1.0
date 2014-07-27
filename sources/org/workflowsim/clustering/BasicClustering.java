@@ -27,7 +27,9 @@ import org.workflowsim.utils.Parameters.ClassType;
 import org.workflowsim.utils.Parameters.FileType;
 
 /**
+ * 该clustering没有做什么聚类，只是将一个task映射到一个job上
  * The default clustering does no clustering at all, just map a task to a job
+ * 
  *
  * @author Weiwei Chen
  * @since WorkflowSim Toolkit 1.0
@@ -137,6 +139,7 @@ public class BasicClustering implements ClusteringInterface {
 
         }
         /**
+         * 处理依赖问题
          * Handle the dependencies issue.
          */
         updateDependencies();
@@ -144,6 +147,7 @@ public class BasicClustering implements ClusteringInterface {
     }
 
     /**
+     * 为新的job添加一个新任务
      * Add a task to a new job
      *
      * @param task the task
@@ -237,7 +241,7 @@ public class BasicClustering implements ClusteringInterface {
 
 
             double delay = Parameters.getOverheadParams().getClustDelay(job);
-            delay *= 1000; // the same ratio used when you parse a workflow
+            delay *= 1000; 		// the same ratio used when you parse a workflow
             long length = job.getCloudletLength();
             length += (long) delay;
             job.setCloudletLength(length);
@@ -246,6 +250,7 @@ public class BasicClustering implements ClusteringInterface {
     }
 
     /**
+     * 更新tasks/jobs间的依赖问题
      * Update the dependency issues between tasks/jobs
      */
     protected final void updateDependencies() {

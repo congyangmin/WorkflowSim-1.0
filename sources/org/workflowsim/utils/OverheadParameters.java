@@ -23,6 +23,7 @@ import org.workflowsim.Job;
 
 /**
  * This class includes all parameters that involve overheads
+ * 该类涉及到所有跟开销相关的参数
  *
  * @author Weiwei Chen
  * @since WorkflowSim Toolkit 1.0

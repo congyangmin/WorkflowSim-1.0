@@ -37,6 +37,7 @@ import org.workflowsim.utils.Parameters.ClassType;
 import org.workflowsim.utils.Parameters.FileType;
 
 /**
+ * WorkflowDatacenter 继承自Datacenter，所以我们可以使用CondorVM和其他组件。
  * WorkflowDatacenter extends Datacenter so as we can use CondorVM and other
  * components
  *
@@ -60,6 +61,7 @@ public class WorkflowDatacenter extends Datacenter {
     }
 
     /**
+     * 处理一个云任务提交。该云任务实际上是一个job，该job可以转换为org.workflowsim.Job
      * Processes a Cloudlet submission. The cloudlet is actually a job which can
      * be cast to org.workflowsim.Job
      *
@@ -182,6 +184,7 @@ public class WorkflowDatacenter extends Datacenter {
     }
 
     /**
+     * 更新一个task提交的时间或执行的时间
      * Update the submission time/exec time of a task
      *
      * @param job

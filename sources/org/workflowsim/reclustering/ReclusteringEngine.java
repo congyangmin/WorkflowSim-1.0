@@ -41,7 +41,7 @@ import org.workflowsim.utils.Parameters;
 public class ReclusteringEngine {
 
     /**
-     * Create a new job
+     * Create a new job     创建一个新的Job
      *
      * @param id, the job id
      * @param job, the failed job
@@ -74,6 +74,8 @@ public class ReclusteringEngine {
 
     /**
      * Process job recreation based on different reclustering algorithm
+     * 
+     * 在不同的重新聚类算法上执行job的重建
      *
      * @param job, job
      * @param id, job id
@@ -131,7 +133,7 @@ public class ReclusteringEngine {
     }
 
     /**
-     * Partition the list of tasks based on their depth
+     * Partition the list of tasks based on their depth    具有任务的深度分割任务列表
      *
      * @param list, the list to process
      * @return a map with key equals to depth
@@ -176,7 +178,7 @@ public class ReclusteringEngine {
     }
 
     /**
-     * Check whether this list has failed task
+     * Check whether this list has failed task       检查是否该列表有失败的任务
      *
      * @param list
      * @return boolean whether this list has failed task
@@ -194,7 +196,7 @@ public class ReclusteringEngine {
     }
 
     /**
-     * Vertical Reclustering
+     * Vertical Reclustering      垂直重聚类
      *
      * @param jobList, job list
      * @param job, job
@@ -235,7 +237,7 @@ public class ReclusteringEngine {
     }
 
     /**
-     * Block Reclustering
+     * Block Reclustering       阻止重聚类
      *
      * @param jobList, job list
      * @param job, job
@@ -269,7 +271,7 @@ public class ReclusteringEngine {
     }
 
     /**
-     * Dynamic Reclustering
+     * Dynamic Reclustering  动态重聚类
      *
      * @param jobList, job list
      * @param job, job
@@ -329,7 +331,7 @@ public class ReclusteringEngine {
     }
 
     /**
-     * Selective Reclustering
+     * Selective Reclustering      选择性重聚类
      *
      * @param jobList, job list
      * @param job, job
@@ -419,7 +421,7 @@ public class ReclusteringEngine {
     }
     
     /**
-     * Dynamic Reclustering
+     * Dynamic Reclustering   动态重聚类
      *
      * @param jobList, job list
      * @param job, job

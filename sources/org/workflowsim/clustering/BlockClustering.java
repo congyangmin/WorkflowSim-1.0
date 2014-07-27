@@ -23,6 +23,7 @@ import java.util.Map;
 import org.workflowsim.Task;
 
 /**
+ * BlockClustering把任务按垂直方向和水平方向分组
  * BlockClustering groups tasks in both horizontal and vertical direction
  *
  * @author Weiwei Chen

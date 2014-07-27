@@ -34,6 +34,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
+ * WorkflowParser 将DAX解析成tasks以便WorkflowSim能够管理他们
  * WorkflowParser parse a DAX into tasks so that WorkflowSim can manage them
  *
  * @author Weiwei Chen

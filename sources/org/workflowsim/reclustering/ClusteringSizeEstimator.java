@@ -21,6 +21,7 @@ import org.cloudbus.cloudsim.Log;
 
 /**
  * This ClusteringSizeEstimator estimates the optimal size of task clustering.
+ * 预估任务聚类的最佳大小
  *
  * @author Weiwei Chen
  * @since WorkflowSim Toolkit 1.0
@@ -36,7 +37,7 @@ public class ClusteringSizeEstimator {
      * @param s system overhead
      * @param theta parameter in estimating inter-arrival time
      * @param phi parameter of Weibull
-     * @return the makespan
+     * @return the makespan       返回时间片
      */
     protected static double f(double k, double t, double s, double theta, double phi_gamma, double phi_ts) {
         double d = (k * t + s) * (phi_ts - 1);
@@ -51,7 +52,7 @@ public class ClusteringSizeEstimator {
      * @param s system overhead
      * @param theta parameter in estimating inter-arrival time
      * @param phi parameter of Weibull
-     * @return the prime of makespan
+     * @return the prime of makespan       返回
      */
     protected static double fprime(double k, double t, double s, double theta, double phi) {
         double first_part = Math.exp(Math.pow((k * t + s) / theta, phi));
@@ -66,7 +67,7 @@ public class ClusteringSizeEstimator {
      * @param s system overhead
      * @param theta parameter in estimating inter-arrival time
      * @param phi parameter of Weibull
-     * @return the optimal K
+     * @return the optimal K  返回最佳的K
      */
     public static int estimateK(double t, double s, double theta, double phi_gamma, double phi_ts) {
         int optimalK = 0;

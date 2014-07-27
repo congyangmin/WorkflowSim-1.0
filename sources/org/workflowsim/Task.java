@@ -23,7 +23,8 @@ import org.cloudbus.cloudsim.Consts;
 import org.cloudbus.cloudsim.UtilizationModelFull;
 
 /**
- * Task is an extention to Cloudlet in CloudSim. It supports the implementation
+ * task是CloudSim里Cloudlet的一个扩展。它支持tasks间依赖关系的实现，通常这些任务包含多个父任务和子任务。在WorkflowSim中，Workflow Engine假设
+ * Task is an extention to Cloudlet in CloudSim. It supports the implementation         一个task提交给准备执行的Scheduler，
  * of dependencies between tasks, which includes a list of parent tasks and a
  * list of child tasks that it has. In WorkflowSim, the Workflow Engine assure
  * that a task is released to the scheduler (ready to run) when all of its

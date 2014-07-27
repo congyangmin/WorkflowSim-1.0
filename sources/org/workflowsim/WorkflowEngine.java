@@ -30,6 +30,7 @@ import org.workflowsim.reclustering.ReclusteringEngine;
 import org.workflowsim.utils.Parameters;
 
 /**
+ * WorkflowEngine表示代理用户，它隐藏了VM管理，比如VM创建、向VMs提交云任务以及VMs的销毁。
  * WorkflowEngine represents a engine acting on behalf of a user. It hides VM
  * management, as vm creation, submission of cloudlets to this VMs and
  * destruction of VMs.
@@ -100,6 +101,7 @@ public class WorkflowEngine extends SimEntity {
     }
 
     /**
+     * 该方法用来向代理发送必须创建的VM列表
      * This method is used to send to the broker the list with virtual machines
      * that must be created.
      *
@@ -133,6 +135,7 @@ public class WorkflowEngine extends SimEntity {
     }
 
     /**
+     * 该方法用来向代理发送云任务列表
      * This method is used to send to the broker the list of cloudlets.
      *
      * @param list the list
@@ -145,6 +148,7 @@ public class WorkflowEngine extends SimEntity {
     }
 
     /**
+     * 代理处理可能的事件
      * Processes events available for this Broker.
      *
      * @param ev a SimEvent object
@@ -260,6 +264,7 @@ public class WorkflowEngine extends SimEntity {
     }
 
     /**
+     * 当你实现了一个新的不同类型的Broker，你可以覆写该方法，
      * Overrides this method when making a new and different type of Broker.
      * This method is called by {@link #body()} for incoming unknown tags.
      *

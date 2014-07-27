@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * job是对Task的扩展，它基本上是一组task的组合。
  * Job is an extention to Task. It is basically a group of tasks. In
  * WorkflowSim, the ClusteringEngine merges tasks into jobs (group of tasks) and
  * the overall runtime of a job is the sum of the task runtime.
