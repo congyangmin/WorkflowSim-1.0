@@ -21,7 +21,7 @@ import org.workflowsim.CondorVM;
 import org.workflowsim.WorkflowSimTags;
 
 /**
- * MCT algorithm
+ * MCT algorithm（Minimum Completion Time）
  *
  * @author Weiwei Chen
  * @since WorkflowSim Toolkit 1.0
@@ -47,7 +47,7 @@ public class MCTSchedulingAlgorithm extends BaseSchedulingAlgorithm {
             for (int j = 0; j < vmSize; j++) {
                 CondorVM vm = (CondorVM) getVmList().get(j);
                 if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
-                    firstIdleVm = vm;
+                    firstIdleVm = vm;          //找到空闲的VM
                     break;
                 }
             }
@@ -55,7 +55,7 @@ public class MCTSchedulingAlgorithm extends BaseSchedulingAlgorithm {
                 break;
             }
 
-            for (int j = 0; j < vmSize; j++) {
+            for (int j = 0; j < vmSize; j++) {         //遍历虚拟机列表，找到空闲虚拟机以及vm的Mips大于任务
                 CondorVM vm = (CondorVM) getVmList().get(j);
                 if ((vm.getState() == WorkflowSimTags.VM_STATUS_IDLE)
                         && (vm.getCurrentRequestedTotalMips() > firstIdleVm.getCurrentRequestedTotalMips())) {

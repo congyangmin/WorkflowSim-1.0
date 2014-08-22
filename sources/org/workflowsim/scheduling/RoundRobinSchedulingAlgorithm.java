@@ -38,15 +38,15 @@ public class RoundRobinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     public void run() {
         int vmIndex = 0;
         
-        int size = getCloudletList().size();
-        Collections.sort(getCloudletList(), new CloudletListComparator());
-        List vmList = getVmList();
-        Collections.sort(vmList, new VmListComparator());
-        for (int j = 0; j < size; j++) {
+        int size = getCloudletList().size();      //获取job的列表
+        Collections.sort(getCloudletList(), new CloudletListComparator());       //任务排序
+        List vmList = getVmList();              //获取vm列表
+        Collections.sort(vmList, new VmListComparator());           //虚拟机排序
+        for (int j = 0; j < size; j++) {          //遍历，虚拟机是否为空，为空则将其分配给cloudlet
             Cloudlet cloudlet = (Cloudlet) getCloudletList().get(j);
             int vmSize = vmList.size();
             CondorVM firstIdleVm = null;//(CondorVM)getVmList().get(0);
-            for (int l = 0; l < vmSize; l++) {
+            for (int l = 0; l < vmSize; l++) {        
                 CondorVM vm = (CondorVM) vmList.get(l);
                 if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
                     firstIdleVm = vm;
@@ -56,10 +56,10 @@ public class RoundRobinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
             if (firstIdleVm == null) {
                 break;
             }
-            ((CondorVM) firstIdleVm).setState(WorkflowSimTags.VM_STATUS_BUSY);
-            cloudlet.setVmId(firstIdleVm.getId());
+            ((CondorVM) firstIdleVm).setState(WorkflowSimTags.VM_STATUS_BUSY);      //将已分配的虚拟机置为“忙碌”
+            cloudlet.setVmId(firstIdleVm.getId());          
             getScheduledList().add(cloudlet);
-            vmIndex = (vmIndex + 1) % vmList.size();
+            vmIndex = (vmIndex + 1) % vmList.size();       //循环一个vmlist周期
 
         }
 
@@ -70,7 +70,7 @@ public class RoundRobinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     public class VmListComparator implements Comparator<CondorVM>{
         @Override
         public int compare(CondorVM v1, CondorVM v2){
-            return Integer.compare(v1.getId(), v2.getId());
+            return Integer.compare(v1.getId(), v2.getId());            //返回0（x=y），-1(x<y)或1(x>y)，
         }
     }
     

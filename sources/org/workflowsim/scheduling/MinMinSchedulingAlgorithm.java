@@ -38,25 +38,25 @@ public class MinMinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     @Override
     public void run() {
 
-        int size = getCloudletList().size();
+        int size = getCloudletList().size();          //获取job任务列表大小
         hasChecked.clear();
         for (int t = 0; t < size; t++) {
-            hasChecked.add(false);
+            hasChecked.add(false);           //初始化为false
         }
         for (int i = 0; i < size; i++) {
             int minIndex = 0;
             Cloudlet minCloudlet = null;
             for (int j = 0; j < size; j++) {
-                Cloudlet cloudlet = (Cloudlet) getCloudletList().get(j);
-                boolean chk = (Boolean) (hasChecked.get(j));
+                Cloudlet cloudlet = (Cloudlet) getCloudletList().get(j);       //从job list中获得cloudlet对象
+                boolean chk = (Boolean) (hasChecked.get(j));        
                 if (!chk) {
-                    minCloudlet = cloudlet;
+                    minCloudlet = cloudlet;               
                     minIndex = j;
                     break;
                 }
             }
             if (minCloudlet == null) {
-                break;
+                break;                    
             }
 
 
@@ -70,18 +70,18 @@ public class MinMinSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
                 long length = cloudlet.getCloudletLength();
 
-                if (length < minCloudlet.getCloudletLength()) {
+                if (length < minCloudlet.getCloudletLength()) {     //此处与MaxMin不同，此处选择最短的任务，而MaxMin中选择最大的任务
                     minCloudlet = cloudlet;
                     minIndex = j;
                 }
             }
             hasChecked.set(minIndex, true);
 
-            int vmSize = getVmList().size();
+            int vmSize = getVmList().size();             //获取VM大小
             CondorVM firstIdleVm = null;//(CondorVM)getVmList().get(0);
             for (int j = 0; j < vmSize; j++) {
-                CondorVM vm = (CondorVM) getVmList().get(j);
-                if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
+                CondorVM vm = (CondorVM) getVmList().get(j);            
+                if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {      
                     firstIdleVm = vm;
                     break;
                 }

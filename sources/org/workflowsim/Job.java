@@ -32,6 +32,7 @@ import java.util.List;
 public class Job extends Task {
 
     /*
+     * 一个job拥有一个task列表，这就是job和task的区别。
      * The list of tasks a job has. It is the only difference between Job and Task. 
      */
     private List<Task> taskList;

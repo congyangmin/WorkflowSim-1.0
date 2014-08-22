@@ -35,6 +35,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
+ * 该HorizontalClusteringExample1使用水平聚类，或者特别通过cluster.size指定集群大小。
  * This HorizontalClusteringExample1 is using horizontal clustering or more specifically
  * using clusters.size to specify the clustering strength. In contrast to HorizontalClust
  * eringExample2 which uses clusters.num to specify the clustering strength. 

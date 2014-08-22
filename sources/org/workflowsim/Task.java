@@ -53,12 +53,14 @@ public class Task extends Cloudlet {
      */
     private int priority;
     /*
+     * 根节点任务到该任务的深度
      * The depth of this task. Depth of a task is defined as the furthest path 
      * from the root task to this task. It is set during the workflow parsing 
      * stage. 
      */
     private int depth;
     /*
+     * 
      * The impact of a task. It is used in research. 
      */
     private double impact;
@@ -319,6 +321,7 @@ public class Task extends Cloudlet {
         return this.task_finish_time;
     }
     /**
+     * 获得处理该任务的总成本，初始的getProcessingCost并不包括CPU成本
      * Gets the total cost of processing or executing this task The original
      * getProcessingCost does not take cpu cost into it also the data file in
      * Task is stored in fileList <tt>Processing Cost = input data transfer +

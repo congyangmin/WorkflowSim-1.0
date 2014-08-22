@@ -35,6 +35,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
+ * 该样例是使用水平方向进行聚类平衡或者特别使用运行时水平方向的平衡
  * This BalancedClusteringExample1 is using balanced horizontal clustering or more specifically
  * using horizontal runtime balancing. 
  *
@@ -117,7 +118,7 @@ public class BalancedClusteringExample1 extends HorizontalClusteringExample1 {
             }
 
             /**
-             * Since we are using MINMIN scheduling algorithm, the planning algorithm should be INVALID 
+             * Since we are using DataAware scheduling algorithm, the planning algorithm should be INVALID 
              * such that the planner would not override the result of the scheduler
              */
             Parameters.SchedulingAlgorithm sch_method = Parameters.SchedulingAlgorithm.DATA;

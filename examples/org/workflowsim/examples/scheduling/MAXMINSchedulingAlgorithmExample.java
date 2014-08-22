@@ -68,7 +68,7 @@ public class MAXMINSchedulingAlgorithmExample extends DataAwareSchedulingAlgorit
             }
 
             /**
-             * Since we are using HEFT planning algorithm, the scheduling algorithm should be static 
+             * Since we are using MAXMIN planning algorithm, the scheduling algorithm should be static 
              * such that the scheduler would not override the result of the planner
              */
             Parameters.SchedulingAlgorithm sch_method = Parameters.SchedulingAlgorithm.MAXMIN;

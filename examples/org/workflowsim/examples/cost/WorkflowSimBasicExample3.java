@@ -33,6 +33,7 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
+ * 这里的成本是 每台VM的开销而不是每个数据中心的
  * This WorkflowSimExample3 is different to WorkflowSimExample2 in that it shows cost
  * per VM instead of cost per Datacenter
  *
@@ -45,7 +46,7 @@ public class WorkflowSimBasicExample3 extends WorkflowSimBasicExample2{
     ////////////////////////// STATIC METHODS ///////////////////////
     /**
      * Creates main() to run this example
-     * This example has only one datacenter and one storage
+     * This example has only one datacenter and one storage   该样例只有一个数据中心和1个存储
      */
     public static void main(String[] args) {
 
@@ -62,7 +63,7 @@ public class WorkflowSimBasicExample3 extends WorkflowSimBasicExample2{
             /**
              * Should change this based on real physical path
              */
-            String daxPath = "/Users/chenweiwei/Work/WorkflowSim-1.0/config/dax/Montage_100.xml";
+            String daxPath = "D:/OpenGit/WorkflowSim-1.0/config/dax/Montage_100.xml";
             if(daxPath == null){
                 Log.printLine("Warning: Please replace daxPath with the physical path in your working environment!");
                 return;
@@ -155,7 +156,7 @@ public class WorkflowSimBasicExample3 extends WorkflowSimBasicExample2{
             Log.printLine("The simulation has been terminated due to an unexpected error");
         }
     }
-    
+    //添加了VM的成本，但是在哪计算了？！
     protected static List<CondorVM> createVM(int userId, int vms) {
 
         //Creates a container to store VMs. This list is passed to the broker later

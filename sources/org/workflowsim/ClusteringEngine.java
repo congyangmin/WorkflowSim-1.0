@@ -34,6 +34,7 @@ import org.workflowsim.utils.Parameters.FileType;
 import org.workflowsim.utils.ReplicaCatalog;
 
 /**
+ * ClusteringEngine是一个优化组件，它将tasks合并成jobs。
  * ClusteringEngine is an optional component of WorkflowSim and it merges tasks
  * into jobs
  *

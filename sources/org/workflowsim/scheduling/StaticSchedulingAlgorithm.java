@@ -23,6 +23,7 @@ import org.workflowsim.CondorVM;
 import org.workflowsim.WorkflowSimTags;
 
 /**
+ * 不再进行Schedule，而依赖于Workflow Planner的映射关系，StaticSchedulingAlgorithm还需检验一个job是否已经被安排VM。
  * Static algorithm. Do not schedule at all and reply on Workflow Planner to set
  * the mapping relationship. But StaticSchedulingAlgorithm would check whether a
  * job has been assigned a VM in this stage (in case your implementation of
@@ -46,7 +47,7 @@ public class StaticSchedulingAlgorithm extends BaseSchedulingAlgorithm {
         for (int i = 0; i < getVmList().size(); i++) {
             CondorVM vm = (CondorVM) getVmList().get(i);
             if (vm != null) {
-                mId2Vm.put(vm.getId(), vm);
+                mId2Vm.put(vm.getId(), vm);     //hashmap存储的实现，
             }
         }
 

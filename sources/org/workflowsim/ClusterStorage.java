@@ -21,6 +21,7 @@ import org.cloudbus.cloudsim.HarddriveStorage;
 import org.cloudbus.cloudsim.ParameterException;
 
 /**
+ * 
  * ClusterStorage is an extention of HarddriveStorage and it is used as a local
  * storage system of a vm
  *

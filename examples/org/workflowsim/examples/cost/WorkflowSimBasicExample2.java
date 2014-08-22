@@ -64,7 +64,7 @@ public class WorkflowSimBasicExample2 extends WorkflowSimBasicExample1{
             /**
              * Should change this based on real physical path
              */
-            String daxPath = "/Users/chenweiwei/Work/WorkflowSim-1.0/config/dax/Montage_100.xml";
+            String daxPath = "D:/OpenGit/WorkflowSim-1.0/config/dax/Montage_100.xml";
             if(daxPath == null){
                 Log.printLine("Warning: Please replace daxPath with the physical path in your working environment!");
                 return;
@@ -167,7 +167,7 @@ public class WorkflowSimBasicExample2 extends WorkflowSimBasicExample1{
         Log.printLine("========== OUTPUT ==========");
         Log.printLine("Cloudlet ID" + indent + "STATUS" + indent
                 + "Data center ID" + indent + "VM ID" + indent + indent + "Time" + indent +
-                "Start Time" + indent + "Finish Time" + indent + "Depth" + indent + "Cost");
+                "Start Time" + indent + "Finish Time" + indent + indent+"Depth" + indent + indent+ indent+"Cost");
 
         DecimalFormat dft = new DecimalFormat("###.##");
         double cost = 0.0;

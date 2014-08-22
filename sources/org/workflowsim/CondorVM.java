@@ -21,6 +21,7 @@ import org.workflowsim.utils.ReplicaCatalog;
 import org.workflowsim.utils.ReplicaCatalog.FileSystem;
 
 /**
+ * Condor VM继承自a VM, 不同之处在于，Condor有本地存储系统而且它也可以标识当前是否忙碌
  * Condor Vm extends a VM: the difference is it has a locl storage system and it
  * has a state to indicate whether it is busy or not
  *

@@ -36,17 +36,17 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     public void run() {
 
 
-        for (Iterator it = getCloudletList().iterator(); it.hasNext();) {
+        for (Iterator it = getCloudletList().iterator(); it.hasNext();) {      //迭代器是一种设计模式，是一个对象，可遍历并选择序列中的对象。
             Cloudlet cloudlet = (Cloudlet) it.next();
-            boolean stillHasVm = false;
+            boolean stillHasVm = false;      
             for (Iterator itc = getVmList().iterator(); itc.hasNext();) {
 
                 CondorVM vm = (CondorVM) itc.next();
                 if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
                     stillHasVm = true;
                     vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
-                    cloudlet.setVmId(vm.getId());
-                    getScheduledList().add(cloudlet);
+                    cloudlet.setVmId(vm.getId());             //将vm分配给cloudlet
+                    getScheduledList().add(cloudlet);          //将已分配vm的cloudlet添加到调度列表
                     break;
                 }
             }

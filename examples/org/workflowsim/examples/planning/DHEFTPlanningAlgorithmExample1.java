@@ -75,7 +75,7 @@ public class DHEFTPlanningAlgorithmExample1 extends HEFTPlanningAlgorithmExample
             }
 
             /**
-             * Since we are using HEFT planning algorithm, the scheduling
+             * Since we are using DHEFT planning algorithm, the scheduling
              * algorithm should be static such that the scheduler would not
              * override the result of the planner
              */

@@ -29,6 +29,7 @@ public class Parameters {
 
     
     /*
+     * 调度算法，局部调度算法
      * Scheduling Algorithm (Local Scheduling Algorithm)
      */
 
@@ -39,6 +40,7 @@ public class Parameters {
     }
     
     /**
+     * 全局调度算法
      * Planning Algorithm (Global Scheduling Algorithm)
      * 
      */
